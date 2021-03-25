@@ -1,0 +1,14 @@
+{% extends 'base/basic.html' %}
+
+{% block title %}Weather app{% endblock %}
+{% block content %}
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" name="" value="Add city" class="bottom">
+    </form>
+    {% for x in weather_data %}
+        {{ x.city }}
+        {{ x.temperature }}
+    {% endfor %}
+{% endblock %}
